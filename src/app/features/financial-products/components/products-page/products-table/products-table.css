@@ -91,21 +91,7 @@
   justify-content: space-between;
 }
 
-/* =============================
-   Select simple
-============================= */
-.select {
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  padding: 6px 10px;
-  background: white;
-  font-size: 14px;
-}
 
-.select:focus {
-  border-color: #2563eb;
-  outline: none;
-}
 
 /* =============================
    Information (icons 'i')
@@ -128,4 +114,24 @@
   gap: 6px; /* separación entre texto e icono */
   font-weight: 600;
   color: #4b5563;
+}
+
+.search-input {
+  width: 260px;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background: white;
+  margin-bottom: 10px;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.search-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }

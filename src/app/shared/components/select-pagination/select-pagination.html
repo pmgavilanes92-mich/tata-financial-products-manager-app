@@ -1,0 +1,5 @@
+<select class="select" (change)="onPageSizeChange($event)">
+    @for (page of pages; track $index) {
+    <option [defaultSelected]="defaultPageSize() === page">{{page}}</option>
+    }
+</select>

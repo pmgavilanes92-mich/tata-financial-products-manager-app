@@ -8,6 +8,7 @@
 
 @if (!loading() && !error()) {
 <div class="card">
+    <input type="text" class="search-input" placeholder="Search..." (input)="searchFilter($event)" />
     <table class="data-table">
         <thead>
             <tr>
@@ -24,27 +25,22 @@
             </tr>
         </thead>
         <tbody>
-            @for (product of products(); track product.id) {
+            @for (product of productsFilter(); track product.id) {
             <tr>
                 <td>
                     <div class="icon">JG</div>
                 </td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
-                <td>{{ product.date_release }}</td>
-                <td>{{ product.date_revision }}</td>
+                <td>{{ product.date_release | date: 'dd/MM/yyyy'}}</td>
+                <td>{{ product.date_revision | date: 'dd/MM/yyyy'}}</td>
             </tr>
             }
         </tbody>
     </table>
     <div class="table-footer">
-        <div>{{products().length}} Resultados</div>
-
-        <select class="select">
-            <option>5</option>
-            <option>10</option>
-            <option>25</option>
-        </select>
+        <div>{{productsFilter().length}} Resultados</div>
+        <app-select-pagination [defaultPageSize]="pageSize" (onPageChange)="onPageChange($event)"></app-select-pagination>
     </div>
 </div>
 
