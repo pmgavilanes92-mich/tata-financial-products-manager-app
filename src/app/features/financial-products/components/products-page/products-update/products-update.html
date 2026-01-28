@@ -1,0 +1,60 @@
+<div>
+    <div class="form-container">
+        <h2 class="form-title">Formulario de Registro</h2>
+
+        <div class="form-divider"></div>
+        @if (error()) {
+        <p class="error-message">{{ error() }}</p>
+        }
+        <form [formGroup]="productForm">
+            <div class="form-grid">
+                <div>
+                    <label for="id">ID</label>
+                    <input [ngClass]="{ 'input-invalid': controlIsInvalid('id') }" type="text" id="id"
+                        formControlName="id">
+                    <app-control-validation [control]="productForm.get('id')" field="ID"></app-control-validation>
+                </div>
+                <div>
+                    <label for="name">Nombre</label>
+                    <input [ngClass]="{ 'input-invalid': controlIsInvalid('name') }" type="text" id="name"
+                        formControlName="name">
+                    <app-control-validation [control]="productForm.get('name')" field="Nombre"></app-control-validation>
+                </div>
+                <div>
+                    <label for="description">Descripción</label>
+                    <input [ngClass]="{ 'input-invalid': controlIsInvalid('description') }" type="text" id="description"
+                        formControlName="description">
+                    <app-control-validation [control]="productForm.get('description')"
+                        field="Descripción"></app-control-validation>
+                </div>
+                <div>
+                    <label for="logoUrl">Logo</label>
+                    <input [ngClass]="{ 'input-invalid': controlIsInvalid('logoUrl') }" type="text" id="logoUrl"
+                        formControlName="logoUrl">
+                    <app-control-validation [control]="productForm.get('logoUrl')"
+                        field="Logo"></app-control-validation>
+                </div>
+                <div>
+                    <label for="dateRelease">Fecha Liberación</label>
+                    <input [ngClass]="{ 'input-invalid': controlIsInvalid('dateRelease') }" type="date" id="dateRelease"
+                        formControlName="dateRelease">
+                    <app-control-validation [control]="productForm.get('dateRelease')"
+                        field="Fecha de liberación"></app-control-validation>
+                </div>
+                <div>
+                    <label for="dateRevision">Fecha Revisión</label>
+                    <input [ngClass]="{ 'input-invalid': controlIsInvalid('dateRevision') }" type="date"
+                        id="dateRevision" formControlName="dateRevision">
+                    <app-control-validation [control]="productForm.get('dateRevision')"
+                        field="Fecha de revisión"></app-control-validation>
+                </div>
+            </div>
+            <div class="buttons">
+                <button type="reset" class="btn btn-reset">Reiniciar</button>
+                <button (click)="saveProduct()" [ngClass]="{ 'btn-inactive': productForm.invalid || loading() }"
+                    class="btn btn-submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+</div>

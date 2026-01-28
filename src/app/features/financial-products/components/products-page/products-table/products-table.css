@@ -135,3 +135,9 @@
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.1fr;
+  gap: 25px 30px;
+}

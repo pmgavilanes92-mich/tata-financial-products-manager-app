@@ -8,7 +8,10 @@
 
 @if (!loading() && !error()) {
 <div class="card">
-    <input type="text" class="search-input" placeholder="Search..." (input)="searchFilter($event)" />
+    <div class="form-grid">
+        <input type="text" class="search-input" placeholder="Search..." (input)="searchFilter($event)" />
+        <button class="btn-primary" (click)="openCreateProductModal()">Agregar</button>
+    </div>
     <table class="data-table">
         <thead>
             <tr>

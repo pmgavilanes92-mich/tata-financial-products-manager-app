@@ -1,0 +1,20 @@
+@if ((control()?.touched && control()?.invalid)) {
+<div>
+    @if (control()?.errors?.['required']) {
+    <small class="text-danger">
+        Este campo es obligatorio.
+    </small>
+    }
+    @if (control()?.errors?.['minlength']) {
+    <small class="text-danger">
+        {{field()}} debe tener al menos {{control()?.errors?.['minlength'].requiredLength}} caracteres.
+    </small>
+    }
+    @if (control()?.errors?.['maxlength']) {
+    <small class="text-danger">
+        {{field()}} no puede exceder {{control()?.errors?.['maxlength'].requiredLength}} caracteres.
+    </small>
+    }
+
+</div>
+}

@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+.btn-primary {
+    padding: 20px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: #ffd012;
+    color: #1e3a8a;
+}
+
+.bc-primary {
+  background-color: "whitesmoke";
+}

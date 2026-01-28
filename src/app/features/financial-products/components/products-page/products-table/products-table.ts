@@ -3,6 +3,7 @@ import { ProductStoreService } from '../../../store/product-store';
 import { DatePipe } from '@angular/common';
 import { SelectPagination } from '../../../../../shared/components/select-pagination/select-pagination';
 import { PRODUCT_FIELDS_FILTER } from '../../../constants/product-fields-filter';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products-table',
@@ -12,6 +13,7 @@ import { PRODUCT_FIELDS_FILTER } from '../../../constants/product-fields-filter'
 })
 export class ProductsTable implements OnInit {
   private productsStoreService = inject(ProductStoreService);
+  private router = inject(Router);
   pageSize = 5;
   queryFilter = '';
   fields = PRODUCT_FIELDS_FILTER
@@ -33,6 +35,10 @@ export class ProductsTable implements OnInit {
   onPageChange(pageSize: number): void {
     this.pageSize = pageSize;
     this.productsStoreService.searchFilter(this.queryFilter, this.fields, pageSize);
+  }
+
+  openCreateProductModal(): void {
+    this.router.navigate(['/','create']);
   }
 
   private getProducts(): void {

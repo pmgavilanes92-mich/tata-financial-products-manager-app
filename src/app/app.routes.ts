@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
-import { ProductsPage } from './features/financial-products/components/products-page/products-page';
 
 export const routes: Routes = [
   {
     path: '',
-    component: ProductsPage,
+    loadChildren() {
+      return import('./features/financial-products/financial-products.routes').then(m => m.FINANCIAL_PRODUCTS_ROUTES)
+    },
   },
 ];
