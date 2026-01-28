@@ -1,5 +1,11 @@
 @if (loading()) {
-<p>Cargando...</p>
+<div class="card">
+  <div class="form-grid">
+    <div class="search-skt skeleton-bar" [style.width]="'28%'"></div>
+    <div class="btn-primary skeleton-bar" [style.width]="'60%'"></div>
+  </div>
+  <app-table-skeleton></app-table-skeleton>
+</div>
 } @if (error()) {
 <p class="error">{{ error() }}</p>
 } @if (!loading() && !error()) {

@@ -1,0 +1,24 @@
+<table class="data-table">
+  <thead>
+    <tr>
+      @for (col of colsArray(); track $index) {
+      <th><div class="skeleton-bar"></div></th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @for (row of rowsArray(); track $index) {
+    <tr>
+      @for (col of colsArray(); track $index) {
+      <td class="place-items-center">
+        <div class="skeleton-bar" [style.width]="getRandomWidth($index)"></div>
+      </td>
+      }
+    </tr>
+    }
+  </tbody>
+</table>
+<div class="table-footer">
+  <div class="skeleton-bar" [style.width]="'6%'"></div>
+  <div class="skeleton-bar" [style.width]="'5%'" [style.height]="'30px'"></div>
+</div>

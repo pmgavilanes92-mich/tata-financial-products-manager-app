@@ -1,0 +1,42 @@
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table thead {
+  background: #f9fafb;
+  font-weight: 600;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.data-table thead th {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.data-table tbody td {
+  padding: 18px 10px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+td { padding: 12px; }
+
+.table-footer {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #4b5563;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.place-items-center {
+  place-items: center;
+}

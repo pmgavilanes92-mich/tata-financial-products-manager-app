@@ -28,3 +28,18 @@
 .bc-primary {
   background-color: #e5e8ed !important;
 }
+
+/* SKELETON STYLES  */
+
+.skeleton-bar {
+  height: 16px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e6e6e6 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  to { background-position: -200% 0; }
+}
+

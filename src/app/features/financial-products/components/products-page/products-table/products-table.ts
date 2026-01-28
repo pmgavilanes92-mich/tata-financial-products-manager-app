@@ -13,12 +13,13 @@ import { SelectPagination } from '../../../../../shared/components/select-pagina
 import { PRODUCT_FIELDS_FILTER } from '../../../constants/product-fields-filter';
 import { Router } from '@angular/router';
 import { ConfirmModal } from '../../../../../shared/components/modals/confirm-modal/confirm-modal';
+import { TableSkeleton } from '../../../../../shared/components/table-skeleton/table-skeleton';
 
 
 @Component({
   selector: 'app-products-table',
   templateUrl: './products-table.html',
-  imports: [DatePipe, SelectPagination, ConfirmModal],
+  imports: [DatePipe, SelectPagination, ConfirmModal, TableSkeleton],
   styleUrls: ['./products-table.css'],
 })
 export class ProductsTable implements OnInit {
