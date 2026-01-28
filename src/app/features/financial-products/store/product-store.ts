@@ -113,6 +113,33 @@ export class ProductStoreService {
       .subscribe();
   }
 
+  deleteProduct(id: string, queryFilter: string, fields: string[], pageSize: number): void {
+    this.clearError();
+    this.loading.set(true);
+    this.productService
+      .delete(id)
+      .pipe(
+        tap(() => {
+          const updatedProducts = this.products().filter((product) => product.id !== id);
+          this.products.set(updatedProducts);
+          if (queryFilter.trim()) {
+            this.searchFilter(queryFilter, fields, pageSize);
+          } else {
+            this.applyPagination(updatedProducts, pageSize);
+          }
+        }),
+        catchError(() => {
+          this.error.set('Error al eliminar el producto');
+          return of(null);
+        }),
+        finalize(() => {
+          this.loading.set(false);
+        }),
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe();
+  }
+
   getById(id: string): IProduct | null {
     return this.products().find((product) => product.id === id) ?? null;
   }

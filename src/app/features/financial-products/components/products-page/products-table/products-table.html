@@ -43,13 +43,16 @@
         <td>{{ product.description }}</td>
         <td>{{ product.date_release | date : 'dd/MM/yyyy' }}</td>
         <td>{{ product.date_revision | date : 'dd/MM/yyyy' }}</td>
-        <td onkeypress="" (click)="openDropdownOptions()"><div class="menu-dots"></div></td>
-        @if (showDropdownOptions()) {
-        <div class="menu dropdown">
-          <button (click)="openEditProductPage(product.id)">Editar</button>
-          <button>Eliminar</button>
-        </div>
-        }
+        <td onkeypress="" (click)="openDropdownOptions(product.id)">
+          <div class="menu-dots">
+            @if (showDropdownOptions() === product.id) {
+            <div #selectOptions class="menu dropdown">
+              <button (click)="openEditProductPage(product.id)">Editar</button>
+              <button (click)="openDeleteProductModal(product.id)">Eliminar</button>
+            </div>
+            }
+          </div>
+        </td>
       </tr>
       }
     </tbody>
@@ -62,5 +65,11 @@
     ></app-select-pagination>
   </div>
 </div>
-
+} @if(showDeleteProductModal()){
+<app-confirm-modal
+  [message]="deleteModalMessage()"
+  [confirmMessageBtn]="'Eliminar'"
+  (response)="onDeleteModalResponse($event)"
+>
+</app-confirm-modal>
 }

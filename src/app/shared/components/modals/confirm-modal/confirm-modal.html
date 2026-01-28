@@ -1,0 +1,13 @@
+<div  onKeyPress class="modal-overlay" (click)="onCancel()">
+  <div onKeyPress class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-body">
+      <p>{{ message() || '¿Está seguro de realizar esta acción?' }}</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancelar</button>
+      <button type="button" class="btn btn-primary" (click)="onConfirm()">
+        {{ confirmMessageBtn() || 'Confirmar' }}
+      </button>
+    </div>
+  </div>
+</div>

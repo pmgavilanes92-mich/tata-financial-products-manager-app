@@ -1,14 +1,26 @@
 .btn-primary {
-    padding: 20px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    background: #ffd012;
-    color: #1e3a8a;
+  padding: 20px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: #ffd012;
+  color: #1e3a8a;
 }
 
-.bc-primary {
-  background-color: "whitesmoke";
+.btn-secondary {
+  background-color: #f3f4f6;
+  color: #1e3a8a;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.btn-secondary:hover {
+  background-color: #e5e7eb;
+}
+
+.btn:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
 }

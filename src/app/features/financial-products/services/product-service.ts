@@ -35,4 +35,10 @@ export class ProductService {
       observe: 'response',
     });
   }
+
+  public delete(id: string): Observable<HttpResponse<void>> {
+    return this._http.delete<void>(`${this.resourceUrl}/${id}`, {
+      observe: 'response',
+    });
+  }
 }
