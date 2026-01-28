@@ -11,18 +11,28 @@ export type EntityResponseType = HttpResponse<IProductCreateResponse>;
   providedIn: 'root',
 })
 export class ProductService {
-  protected resourceUrl = ('/api/bp/products');
-  constructor(private readonly _http: HttpClient) { }
+  protected resourceUrl = '/api/bp/products';
+  constructor(private readonly _http: HttpClient) {}
 
   public getAllProducts(): Observable<EntityArrayResponseType> {
     return this._http.get<IProductResponse>(this.resourceUrl, { observe: 'response' });
   }
 
   public create(product: IProduct): Observable<EntityResponseType> {
-    return this._http.post<IProductCreateResponse>(this.resourceUrl, product, { observe: 'response' });
+    return this._http.post<IProductCreateResponse>(this.resourceUrl, product, {
+      observe: 'response',
+    });
   }
 
   public verifyProductId(id: string): Observable<HttpResponse<boolean>> {
-    return this._http.get<boolean>(`${this.resourceUrl}/verification/${id}`, { observe: 'response' });
+    return this._http.get<boolean>(`${this.resourceUrl}/verification/${id}`, {
+      observe: 'response',
+    });
+  }
+
+  public update(product: IProduct): Observable<EntityResponseType> {
+    return this._http.put<IProductCreateResponse>(`${this.resourceUrl}/${product.id}`, product, {
+      observe: 'response',
+    });
   }
 }

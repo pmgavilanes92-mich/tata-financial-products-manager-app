@@ -1,50 +1,66 @@
 @if (loading()) {
 <p>Cargando...</p>
-}
-
-@if (error()) {
+} @if (error()) {
 <p class="error">{{ error() }}</p>
-}
-
-@if (!loading() && !error()) {
+} @if (!loading() && !error()) {
 <div class="card">
-    <div class="form-grid">
-        <input type="text" class="search-input" placeholder="Search..." (input)="searchFilter($event)" />
-        <button class="btn-primary" (click)="openCreateProductModal()">Agregar</button>
-    </div>
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Logo</th>
-                <th>Nombre del producto</th>
-                <th>
-                    <span class="col-icon">
-                        Fecha de liberación
-                        <span class="info-icon">i</span>
-                    </span>
-                </th>
-                <th> <span class="col-icon">Fecha de liberación<span class="info-icon">i</span></span> </th>
-                <th> <span class="col-icon">Fecha de reestructurción<span class="info-icon">i</span></span> </th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (product of productsFilter(); track product.id) {
-            <tr>
-                <td>
-                    <div class="icon">JG</div>
-                </td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.description }}</td>
-                <td>{{ product.date_release | date: 'dd/MM/yyyy'}}</td>
-                <td>{{ product.date_revision | date: 'dd/MM/yyyy'}}</td>
-            </tr>
-            }
-        </tbody>
-    </table>
-    <div class="table-footer">
-        <div>{{productsFilter().length}} Resultados</div>
-        <app-select-pagination [defaultPageSize]="pageSize" (onPageChange)="onPageChange($event)"></app-select-pagination>
-    </div>
+  <div class="form-grid">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search..."
+      (input)="searchFilter($event)"
+    />
+    <button class="btn-primary" (click)="openCreateProductModal()">Agregar</button>
+  </div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Logo</th>
+        <th>Nombre del producto</th>
+        <th>
+          <span class="col-icon">
+            Descripción
+            <span class="info-icon">i</span>
+          </span>
+        </th>
+        <th>
+          <span class="col-icon">Fecha de liberación<span class="info-icon">i</span></span>
+        </th>
+        <th>
+          <span class="col-icon">Fecha de reestructurción<span class="info-icon">i</span></span>
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of productsFilter(); track product.id) {
+      <tr>
+        <td>
+          <div class="icon">JG</div>
+        </td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.date_release | date : 'dd/MM/yyyy' }}</td>
+        <td>{{ product.date_revision | date : 'dd/MM/yyyy' }}</td>
+        <td onkeypress="" (click)="openDropdownOptions()"><div class="menu-dots"></div></td>
+        @if (showDropdownOptions()) {
+        <div class="menu dropdown">
+          <button (click)="openEditProductPage(product.id)">Editar</button>
+          <button>Eliminar</button>
+        </div>
+        }
+      </tr>
+      }
+    </tbody>
+  </table>
+  <div class="table-footer">
+    <div>{{ productsFilter().length }} Resultados</div>
+    <app-select-pagination
+      [defaultPageSize]="pageSize"
+      (onPageChange)="onPageChange($event)"
+    ></app-select-pagination>
+  </div>
 </div>
 
 }

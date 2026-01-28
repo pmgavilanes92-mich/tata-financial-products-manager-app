@@ -1,5 +1,3 @@
-
-
 /* =============================
    continer
 ============================= */
@@ -91,15 +89,13 @@
   justify-content: space-between;
 }
 
-
-
 /* =============================
    Information (icons 'i')
 ============================= */
 .info-icon {
   color: #ffffff;
   cursor: pointer;
-   height: 18px;
+  height: 18px;
   width: 18px;
   border-radius: 50%;
   background: #838486;
@@ -140,4 +136,42 @@
   display: grid;
   grid-template-columns: 1fr 0.1fr;
   gap: 25px 30px;
+}
+
+.menu-dots {
+  width: 4px;
+  height: 4px;
+  background: #000;
+  border-radius: 50%;
+  box-shadow: 0 8px 0 #000, 0 16px 0 #000;
+}
+
+.dropdown {
+  position: relative;
+  width: 30px;
+}
+
+.menu {
+  position: absolute;
+  top: 155px;
+  right: 80px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  min-width: 80px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: block;
+}
+
+.menu button {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: black;
+  background-color: #ffff;
+  border: 0px;
+  width: 100%;
+  &:hover {
+    background: #f2f2f2;
+  }
 }

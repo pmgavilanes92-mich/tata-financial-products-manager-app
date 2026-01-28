@@ -1,5 +1,3 @@
-
-
 .form-container {
   background: white;
   max-width: 900px;
@@ -29,7 +27,6 @@
   gap: 25px 30px;
 }
 
-
 label {
   display: block;
   margin-bottom: 6px;
@@ -38,7 +35,7 @@ label {
 }
 
 input,
-input[disabled]{
+input[disabled] {
   width: 100%;
   padding: 12px 14px;
   border: 1px solid #d1d5db;
@@ -59,7 +56,7 @@ input[disabled]{
   color: #9ca3af;
 }
 
- .input-invalid {
+.input-invalid {
   border-color: #ef4444;
   background: #fff6f6;
 }
@@ -73,7 +70,7 @@ input[disabled]{
 
 .btn {
   padding: 20px 20px;
-  border-radius:5px;
+  border-radius: 5px;
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -87,7 +84,7 @@ input[disabled]{
 
 .btn-submit {
   background: #ffd012;
-    color: #1e3a8a;
+  color: #1e3a8a;
 }
 
 .btn-inactive {
@@ -101,6 +98,11 @@ input[disabled]{
   color: #ef4444;
   font-size: 13px;
   margin-top: 4px;
+}
+
+.disable {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 @media (max-width: 750px) {

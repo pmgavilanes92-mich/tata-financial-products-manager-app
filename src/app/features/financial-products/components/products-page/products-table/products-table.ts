@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ProductStoreService } from '../../../store/product-store';
 import { DatePipe } from '@angular/common';
 import { SelectPagination } from '../../../../../shared/components/select-pagination/select-pagination';
@@ -12,16 +12,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./products-table.css'],
 })
 export class ProductsTable implements OnInit {
-  private productsStoreService = inject(ProductStoreService);
-  private router = inject(Router);
+  private readonly productsStoreService = inject(ProductStoreService);
+  private readonly router = inject(Router);
+
   pageSize = 5;
   queryFilter = '';
   fields = PRODUCT_FIELDS_FILTER
-
+  showDropdownOptions = signal(false);
   productsFilter = this.productsStoreService.productsFilter;
   error = this.productsStoreService.error;
   loading = this.productsStoreService.loading;
-
+  showDeleteProductModal = false
   ngOnInit(): void {
     this.getProducts();
   }
@@ -39,6 +40,14 @@ export class ProductsTable implements OnInit {
 
   openCreateProductModal(): void {
     this.router.navigate(['/','create']);
+  }
+
+  openDropdownOptions(): void {
+    this.showDropdownOptions.update(value => !value)
+  }
+
+  openEditProductPage(id: string): void {
+    this.router.navigate(['/edit', id]);
   }
 
   private getProducts(): void {
