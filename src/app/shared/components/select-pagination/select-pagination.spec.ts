@@ -8,9 +8,8 @@ describe('SelectPagination', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SelectPagination]
-    })
-    .compileComponents();
+      imports: [SelectPagination],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SelectPagination);
     component = fixture.componentInstance;

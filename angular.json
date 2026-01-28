@@ -71,7 +71,7 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "jestConfig": "jest.config.js",
+            "config": "jest.config.js",
             "tsConfig": "tsconfig.spec.json"
           }
         }

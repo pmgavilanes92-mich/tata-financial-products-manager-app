@@ -16,7 +16,7 @@ export class ProductsUpdate implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly fb = inject(FormBuilder);
   private readonly productsStoreService = inject(ProductStoreService);
-  private product: IProduct | null = null;
+  product: IProduct | null = null;
 
   isEditing = false;
   error = this.productsStoreService.error;

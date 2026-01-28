@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { ProductsPage } from './components/products-page/products-page';
 import { ProductResolve } from './resolvers/product.resolve';
-import { ProductExistsGuard } from './guards/product-exists';
+import { ProductExistsGuard } from './guards/product-exists.guard';
 
 export const FINANCIAL_PRODUCTS_ROUTES: Routes = [
   {

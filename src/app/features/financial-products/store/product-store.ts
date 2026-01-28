@@ -42,7 +42,7 @@ export class ProductStoreService {
           this.loading.set(false);
           this.loadProducts.set(true);
         }),
-        takeUntilDestroyed(this.destroyRef)
+        takeUntilDestroyed(this.destroyRef),
       )
       .subscribe();
   }
@@ -81,13 +81,13 @@ export class ProductStoreService {
             catchError(() => {
               this.error.set('Error al guardar el producto');
               return of(null);
-            })
+            }),
           );
         }),
         finalize(() => {
           this.loading.set(false);
         }),
-        takeUntilDestroyed(this.destroyRef)
+        takeUntilDestroyed(this.destroyRef),
       )
       .subscribe();
   }
@@ -108,7 +108,7 @@ export class ProductStoreService {
         finalize(() => {
           this.loading.set(false);
         }),
-        takeUntilDestroyed(this.destroyRef)
+        takeUntilDestroyed(this.destroyRef),
       )
       .subscribe();
   }
@@ -122,11 +122,7 @@ export class ProductStoreService {
         tap(() => {
           const updatedProducts = this.products().filter((product) => product.id !== id);
           this.products.set(updatedProducts);
-          if (queryFilter.trim()) {
-            this.searchFilter(queryFilter, fields, pageSize);
-          } else {
-            this.applyPagination(updatedProducts, pageSize);
-          }
+          this.searchFilter(queryFilter, fields, pageSize);
         }),
         catchError(() => {
           this.error.set('Error al eliminar el producto');
@@ -135,7 +131,7 @@ export class ProductStoreService {
         finalize(() => {
           this.loading.set(false);
         }),
-        takeUntilDestroyed(this.destroyRef)
+        takeUntilDestroyed(this.destroyRef),
       )
       .subscribe();
   }
@@ -159,7 +155,7 @@ export class ProductStoreService {
         return String(fieldValue ?? '')
           .toLowerCase()
           .includes(query);
-      })
+      }),
     );
   }
 
