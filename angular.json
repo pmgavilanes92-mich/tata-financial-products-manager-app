@@ -2,11 +2,12 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": false
   },
   "newProjectRoot": "projects",
   "projects": {
-    "ddsd": {
+    "tata-financial-products-manager-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,13 +57,16 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ddsd:build:production"
+              "buildTarget": "tata-financial-products-manager-app:build:production"
             },
             "development": {
-              "buildTarget": "ddsd:build:development"
+              "buildTarget": "tata-financial-products-manager-app:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+           "options": {
+            "proxyConfig": "proxy.config.js"
+          }
         },
         "test": {
           "builder": "@angular/build:unit-test"

@@ -1,0 +1,51 @@
+@if (loading()) {
+<p>Cargando...</p>
+}
+
+@if (error()) {
+<p class="error">{{ error() }}</p>
+}
+
+@if (!loading() && !error()) {
+<div class="card">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Logo</th>
+                <th>Nombre del producto</th>
+                <th>
+                    <span class="col-icon">
+                        Fecha de liberación
+                        <span class="info-icon">i</span>
+                    </span>
+                </th>
+                <th> <span class="col-icon">Fecha de liberación<span class="info-icon">i</span></span> </th>
+                <th> <span class="col-icon">Fecha de reestructurción<span class="info-icon">i</span></span> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (product of products(); track product.id) {
+            <tr>
+                <td>
+                    <div class="icon">JG</div>
+                </td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.date_release }}</td>
+                <td>{{ product.date_revision }}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <div class="table-footer">
+        <div>{{products().length}} Resultados</div>
+
+        <select class="select">
+            <option>5</option>
+            <option>10</option>
+            <option>25</option>
+        </select>
+    </div>
+</div>
+
+}
