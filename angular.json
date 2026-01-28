@@ -64,12 +64,16 @@
             }
           },
           "defaultConfiguration": "development",
-           "options": {
+          "options": {
             "proxyConfig": "proxy.config.js"
           }
         },
         "test": {
-          "builder": "@angular/build:unit-test"
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "jestConfig": "jest.config.js",
+            "tsConfig": "tsconfig.spec.json"
+          }
         }
       }
     }
