@@ -1,0 +1,14 @@
+<form>
+  <div class="form-grid">
+    @for (label of labelsArray(); track $index) {
+    <div>
+      <div class="skt-label skeleton-bar"></div>
+      <div class="skt-input skeleton-bar"></div>
+    </div>
+    }
+  </div>
+  <div class="buttons">
+    <div class="btn-primary skeleton-bar" [style.width]="'10%'"></div>
+    <div class="btn-primary skeleton-bar" [style.width]="'10%'"></div>
+  </div>
+</form>

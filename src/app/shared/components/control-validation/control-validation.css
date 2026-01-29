@@ -1,5 +1,5 @@
 .text-danger {
   margin-top: 4px;
   font-size: 13px;
-  color: #ef4444;
+  color: var(--color-danger);
 }

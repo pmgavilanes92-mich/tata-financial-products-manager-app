@@ -1,0 +1,30 @@
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 30px;
+}
+
+.skt-input {
+  width: 100%;
+  padding: 12px 0px;
+  margin: 12px 0px;
+}
+
+.skt-label {
+  width: 28%;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+@media (max-width: 750px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

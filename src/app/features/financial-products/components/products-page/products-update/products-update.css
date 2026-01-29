@@ -4,7 +4,7 @@
   margin: 40px auto;
   padding: 40px;
   border-radius: 12px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--white-lead);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
@@ -17,7 +17,7 @@
 
 .form-divider {
   height: 1px;
-  background: #d1d5db;
+  background: var(--color-border);
   margin-bottom: 30px;
 }
 
@@ -38,27 +38,22 @@ input,
 input[disabled] {
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--color-border);
   border-radius: 8px;
-  background: #ffffff;
+  background: var(--white);
   font-size: 14px;
   outline: none;
   box-sizing: border-box;
 }
 
 .input:focus {
-  border-color: #2563eb;
+  border-color: var(--light-blue);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
-.input[disabled] {
-  background: #f3f4f6;
-  color: #9ca3af;
-}
-
 .input-invalid {
-  border-color: #ef4444;
-  background: #fff6f6;
+  border-color: var(--color-danger);
+  background: var(--light-red);
 }
 
 .buttons {
@@ -78,24 +73,24 @@ input[disabled] {
 }
 
 .btn-reset {
-  background: #e0e7ff;
-  color: #1e3a8a;
+  background: var(--color-btn-reset);
+  color: var(--blue);
 }
 
 .btn-submit {
-  background: #ffd012;
-  color: #1e3a8a;
+  background: var(--yellow);
+  color: var(--blue);
 }
 
 .btn-inactive {
-  background: #9ca3af;
+  background: var(--color-btn-disabled);
   color: white;
   cursor: not-allowed;
   opacity: 0.7;
 }
 
 .error-message {
-  color: #ef4444;
+  color: var(--color-danger);
   font-size: 13px;
   margin-top: 4px;
 }

@@ -13,7 +13,7 @@ import { SelectPagination } from '../../../../../shared/components/select-pagina
 import { PRODUCT_FIELDS_FILTER } from '../../../constants/product-fields-filter';
 import { Router } from '@angular/router';
 import { ConfirmModal } from '../../../../../shared/components/modals/confirm-modal/confirm-modal';
-import { TableSkeleton } from '../../../../../shared/components/table-skeleton/table-skeleton';
+import { TableSkeleton } from '../../../../../shared/components/skeletons/table-skeleton/table-skeleton';
 
 
 @Component({
@@ -51,7 +51,7 @@ export class ProductsTable implements OnInit {
   }
 
   searchFilter(event: Event): void {
-    const value = (event.target as HTMLInputElement).value.trim();
+    const value = (event?.target as HTMLInputElement)?.value?.trim();
     this.queryFilter = value;
     this.productsStoreService.searchFilter(value, this.fields, this.pageSize);
   }

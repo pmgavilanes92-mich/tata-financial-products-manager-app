@@ -1,0 +1,20 @@
+:root {
+  --yellow: #ffd012;
+  --blue: #1e3a8a;
+  --light-blue: #3b82f6;
+  --light-lead: #f3f4f6;
+  --white-lead: #e5e7eb;
+  --gray: #4b5563;
+  --white: #ffffff;
+  --black: #000;
+  --light-red: #fff6f6;
+  /* UI */
+  --color-bg: #e5e8ed;
+  --color-skeleton-bg: #e6e6e6;
+  --color-skeleton-gradient: #f0f0f0;
+  --color-danger: #ef4444;
+  --color-btn-reset: #e0e7ff;
+  --icon-bg: #e2e5f0;
+  --color-border: #d1d5db;
+  --color-btn-disabled: #9ca3af;
+}

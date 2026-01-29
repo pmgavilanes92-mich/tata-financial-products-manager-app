@@ -5,12 +5,13 @@ import { ControlValidation } from '../../../../../shared/components/control-vali
 import { NgClass } from '@angular/common';
 import { ProductStoreService } from '../../../store/product-store';
 import { IProduct } from '../../../models/Product';
+import { FormSkeleton } from '../../../../../shared/components/skeletons/form-skeleton/form-skeleton';
 
 @Component({
   selector: 'app-products-update',
   templateUrl: './products-update.html',
   styleUrl: './products-update.css',
-  imports: [ReactiveFormsModule, ControlValidation, NgClass],
+  imports: [ReactiveFormsModule, ControlValidation, NgClass, FormSkeleton],
 })
 export class ProductsUpdate implements OnInit {
   private readonly route = inject(ActivatedRoute);

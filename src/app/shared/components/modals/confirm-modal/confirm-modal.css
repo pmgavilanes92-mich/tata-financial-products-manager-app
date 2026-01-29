@@ -15,7 +15,9 @@
 .modal-container {
   background: white;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.06);
   width: 90%;
   max-width: 500px;
   animation: slideIn 0.3s ease-out;
@@ -25,14 +27,14 @@
   padding: 1.5rem;
   p {
     margin: 0 0 0.75rem 0;
-    color: #374151;
+    color: var(--black);
     line-height: 1.5;
   }
 }
 
 .modal-footer {
   padding: 1.5rem;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--white-lead);
   display: flex;
   justify-content: center;
   gap: 0.75rem;

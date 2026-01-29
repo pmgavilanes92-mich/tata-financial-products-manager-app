@@ -50,14 +50,8 @@ export class ProductStoreService {
   searchFilter(value: string, fields: string[], pageSize: number): void {
     const allProducts = this.products();
     let filteredProducts: IProduct[];
-
-    if (value.trim()) {
-      const query = value.toLowerCase().trim();
-      filteredProducts = this.filterProductByField(allProducts, fields, query);
-    } else {
-      filteredProducts = allProducts;
-    }
-
+    const query = value.toLowerCase().trim();
+    filteredProducts = query ? this.filterProductByField(allProducts, fields, query) : allProducts;
     this.applyPagination(filteredProducts, pageSize);
   }
 
@@ -84,8 +78,10 @@ export class ProductStoreService {
             }),
           );
         }),
-        finalize(() => {
-          this.loading.set(false);
+        finalize(() => this.loading.set(false)),
+        catchError(() => {
+          this.error.set('Error al guardar producto');
+          return of(null);
         }),
         takeUntilDestroyed(this.destroyRef),
       )
